@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    color: #5D5D7D;
+}
+
+/* O wrapper agora controla o layout das duas colunas */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.container-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    padding: 0 10%; /* Padding proporcional */
+}
+
+.container-right {
+    width: 40%;
+    background-color: rgba(93, 93, 125, 0.16);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+header {
+    padding: 30px;
+}
+
+/* Ajuste da imagem para não precisar de valores fixos negativos altos */
+.image-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    max-width: 400px;
+    /* Efeito de sobreposição leve se desejar */
+    transform: translateX(-50px); 
+}
+
+h1 {   
+    font-size: 60px;
+    line-height: 70px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px; /* Corrigido de 70px para um tamanho de leitura */
+    line-height: 28px;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+button {
+    width: 260px;
+    height: 60px;
+    background-color: #9499EA;
+    box-shadow: 0px 10px 24px rgba(148, 153, 234, 0.4);
+    font-size: 20px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover { opacity: 0.8; transform: translateY(-2px); }
+button:active { opacity: 0.6; }
+
+nav a {
+    font-size: 18px;
+    margin-right: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover { opacity: 0.5; }
+
+/* --- RESPONSIVIDADE --- */
+
+@media screen and (max-width: 900px) {
+    .wrapper {
+        flex-direction: column; /* Colunas viram linhas no mobile */
+    }
+
+    .container-left, .container-right {
+        width: 100%;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .container-left {
+        order: 2; /* Joga o texto para baixo da imagem no mobile, se preferir */
+    }
+
+    .container-right {
+        order: 1;
+        height: auto;
+    }
+
+    header {
+        display: none; /* Mantendo seu padrão de esconder o menu no mobile */
+    }
+
+    img {
+        transform: none; /* Remove o deslocamento no mobile */
+        width: 80%;
+    }
+
+    h1 { font-size: 32px; line-height: 40px; }
+}
